@@ -1,9 +1,17 @@
 #!/bin/bash
 
-# This is script for TWS
+#####################################################################
+#	
+#	Name: Yoginder Bagga
+#	Purpose: Demonstrate Basic Shell Script
+#	Scope: For the learning
+#
+####################################################################
 
-echo "TWS: Hello Dosto"
 
-echo "Learners: DevOps Wale bhaiya , hum toh comment karenge"
 
-echo "TWS: Toh dosto, like bhi kar do"
+
+	echo -e "Hello World, Welcome to shell script \n"
+	echo "This is the first script"
+
+	#The above echo -e flag is used to allow \n to treat as newline character
