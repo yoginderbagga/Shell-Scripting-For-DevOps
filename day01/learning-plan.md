@@ -10,5 +10,10 @@ execute. Without shell the computer will not understand the command that you typ
 
 ## What is the use Shell Scripting is used DevOps / SRE?
 
-The primary use of Shell scripting is to automate the repetitive tasks, handeling local files, managing user accounts 
+The primary use of Shell scripting is to automate the repetitive tasks, handeling local files, managing user accounts, database monitoring, text manipulation, creating backup, glueing multiple tools together and much more can be done using the shell script. 
+
+
+
+
+
 
