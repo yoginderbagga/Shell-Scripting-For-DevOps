@@ -10,20 +10,24 @@
 
 echo -e  "--------------CHECK IF FILE AND DIRECTORY EXIST-------------- \n"
 
-FPATH=/home/yoginderbagga/Shell-Scripting-For-DevOps/day01/hello.sssh
+FPATH=/home/yoginderbagga/Shell-Scripting-For-DevOps/day01/hello.sh
 DIRPATH=/home/yoginderbagga/projects
 
 if [ -f $FPATH ]; then
-	echo "File hello.sh exist"
+	
+	echo -e "✅ File hello.sh exist \n"
 
 else 
 	echo "File not found"
-	echo "Check if the directory exist"
+fi
 
-	if [ -d $DIRPATH ]; then
-		echo "Directory exist"
-	else 
+	echo -e "Check if the directory exist \n"
+
+if [ -d $DIRPATH ]; then
+
+	echo "✅ Directory exist"
+else 
 		echo "Directory not found"
-	fi
+	
 fi
 
