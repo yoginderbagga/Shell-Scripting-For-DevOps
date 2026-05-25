@@ -8,13 +8,22 @@
 #
 ####################################################################
 
-echo -e  "--------------CHECK IF FILE EXIST OR NOT-------------- \n"
+echo -e  "--------------CHECK IF FILE AND DIRECTORY EXIST-------------- \n"
 
-FPATH=/home/yoginderbagga/Shell-Scripting-For-DevOps/day01/hello.sh
+FPATH=/home/yoginderbagga/Shell-Scripting-For-DevOps/day01/hello.sssh
+DIRPATH=/home/yoginderbagga/projects
 
 if [ -f $FPATH ]; then
 	echo "File hello.sh exist"
 
 else 
 	echo "File not found"
+	echo "Check if the directory exist"
+
+	if [ -d $DIRPATH ]; then
+		echo "Directory exist"
+	else 
+		echo "Directory not found"
+	fi
 fi
+
