@@ -10,7 +10,10 @@
 
 echo -e "----------------Demonstrating For Loop with Range-------------------"
 
-for all_marks in {1..10}
+for a in {1..10}
 do	
-	echo "Your score is: $all_marks"
+
+	mkdir -p "Dir_$a"
+	echo "Directory is created : $Dir_$a"
+#	mkdir -p "Dir_$a"
 done
