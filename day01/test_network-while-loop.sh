@@ -8,8 +8,10 @@
 #
 ####################################################################
 
-echo -e "-----------WEB-APPLICATION CONNECTIVITY TESTING---------- \n"
 
+
+echo -e "-----------WEB-APPLICATION CONNECTIVITY TESTING---------- \n"
+set -euo pipefail
 
 
 
