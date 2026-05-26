@@ -13,32 +13,46 @@ echo -e "-----------WEB-APPLICATION CONNECTIVITY TESTING---------- \n"
 
 
 
-read -p "Enter the Web-Application Hostname: " hostname
+#Added -a with read to declare it as array
+read -p "Enter the Web-Application Hostname: " -a  hostnames
+
 
 # Define regex variable to store the pattern of alphabets you would like to validate
 regex='^[a-zA-Z0-9]([a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(\.[a-zA-Z0-9]([a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*\.[a-zA-Z]{2,}$'
 
 
-# Validate whether the hostname is correct or not.
-if [[ "$hostname" =~ $regex ]]; then
-	echo -e "Valid hostname\n"
-	echo -e  "---------------------WEB-APPLICATION TESTING STARTED------------\n"
 
-# This block will execute if the above hostname is correct
-	while [[ test -lt 4 ]];
-	do 
-		ping -c 3 $hostname
-		nslookup $hostname
-		dig $hostname
+count=0
 
-		((test++))
-	done 
+while [[ $count -lt ${#hostnames[@]} ]];
+do 
+	hostname="${hostnames[$count]}"
+	
+	echo -e "\n=========Testing : $hostname =========\n"
 
 
-else 
-	echo -e "Invalid hostname\n"
-fi 
+	# Validate whether the hostname is correct or not.
+	if [[ "$hostname" =~ $regex ]]; then
 
+		echo -e "Valid hostname\n"
+	
+		echo -e "\n -------PING-------"
+		ping -c 3 "$hostname"
+
+		echo -e "\n ------NSLOOKUP----"
+		nslookup "$hostname"
+
+		echo -e "\n ------DIG-------"
+		dig "$hostname"
+	else
+		echo "Invalid hostname: $hostname"
+		exit 1			# Immediately exit from the script if invalid hostname
+	fi
+
+	# Increment counter
+	((count++))
+
+done
 
 
 
