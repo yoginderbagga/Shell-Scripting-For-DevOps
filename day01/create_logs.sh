@@ -26,11 +26,18 @@ mkdir -p $DESTINATION
 BACKUP_FILE="backup_$DATE.tar.gz"
 
 
-## CREATING THE BACKUP USING TAR AND 
+## Give FULL PATH + FILE NAME so its cleanr where the BACKUP SHOULD EXACTLY GO not just in the home or working directory. 
 tar -czf  "$DESTINATION/$BACKUP_FILE"  "$SOURCE"
 
 
-echo -e "--------BACKUP OF $SOURCE IS COMPLETED AT $DESTINATION/$BACKUP_FILE--------\n"
+if [[ $? -eq "0" ]]; then
+	echo "Backup Successfully Completed"
+	exit 0
+else
+
+	echo "Backup Failed"
+	exit 1
+fi
 
 
 
