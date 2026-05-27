@@ -9,17 +9,28 @@
 ####################################################################
 
 
-echo -e "STORING LOGS AT THE DESTINATION FOLDER"
+echo -e "-------------------CREATING BACKUPS USING TAR-----------------------"
 
+## DEFINING VARIABLES TO STORE SOURCE, DESTINATION and DATE  
 
 SOURCE="/home/yoginderbagga/Shell-Scripting-For-DevOps"
-DESTINATION="/tmp"
+DESTINATION="/tmp/my_backup"
+DATE=$(date +%Y-%m-%d_%H-%M-%S)
 
-mkdir -p /tmp/my_backup
 
-FILE="$DESTINATION/my_backup/TRUTH"
+## CREATING DIRECTORY to FOR BACKUP DESTINATION
+mkdir -p $DESTINATION
 
-tar -cvzf  $FILE_$(date +%Y-%m-%d).tar.gz $SOURCE
+
+## MUST DEFINE FILE NAME for the BACKUP FILE as TAR DOESN"T AUTOMATICALLY INVENT BACKUP FILE NAME
+BACKUP_FILE="backup_$DATE.tar.gz"
+
+
+## CREATING THE BACKUP USING TAR AND 
+tar -czf  "$DESTINATION/$BACKUP_FILE"  "$SOURCE"
+
+
+echo -e "--------BACKUP OF $SOURCE IS COMPLETED AT $DESTINATION/$BACKUP_FILE--------\n"
 
 
 
