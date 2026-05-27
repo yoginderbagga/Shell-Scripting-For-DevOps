@@ -32,7 +32,9 @@ tar -czf  "$DESTINATION/$BACKUP_FILE"  "$SOURCE"
 
 if [[ $? -eq "0" ]]; then
 	echo "Backup Successfully Completed"
-	exit 0
+	echo "Deleting backup older than 7 days..."
+
+	find "$DESTINATION" -type f -name "*.tar.gz" -mmin +80 -delete
 else
 
 	echo "Backup Failed"
